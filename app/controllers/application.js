@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { compileTemplate } from '@ember/template-compilation';
+import { styleNamespace } from 'ember-component-css-example/components/some-component.css';
 
 function registerTemplateOnlyGlimmerComponent(moduleName, getTemplate) {
   define(moduleName, ['exports'], function (_exports) {
@@ -19,5 +20,5 @@ function getZone(template) {
 }
 
 export default class ApplicationController extends Controller {
-  zone = getZone('<div class={{style-namespace "some-component"}}><a href="#">aaaaa</a></div>')
+  zone = getZone('<div class={{style-namespace runClass="' + styleNamespace + '"}}><a href="#">aaaaa</a></div>')
 }
